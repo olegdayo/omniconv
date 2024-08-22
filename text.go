@@ -1,4 +1,4 @@
-package converter
+package omniconv
 
 type Text interface {
 	[]byte | string

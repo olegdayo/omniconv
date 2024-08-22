@@ -1,6 +1,6 @@
-# Converter
+# OmniConv
 
-[ci]: https://github.com/olegdayo/converter/actions/workflows/ci.yaml/badge.svg
+[ci]: https://github.com/olegdayo/omniconv/actions/workflows/ci.yaml/badge.svg
 
 ![CI][ci]
 
@@ -13,14 +13,14 @@ A simple, somewhat declarative type conversion library
 ```go
 func ExampleNumber() {
 	ints := []int{1, 2, 3, 4}
-	floats := converter.ConvertSlice(ints, converter.NumberConverter[int, float64])
+	floats := omniconv.ConvertSlice(ints, omniconv.NumberConverter[int, float64])
 	fmt.Printf("%#v\n", floats)
 	// Output: []float64{1, 2, 3, 4}
 }
 
 func ExampleString() {
 	strings := map[int]string{5: "6", 7: "8", 9: "silly"}
-	uints := converter.ConvertMap(strings, converter.StringToIntConverter[int])
+	uints := omniconv.ConvertMap(strings, omniconv.StringToIntConverter[int])
 	fmt.Printf("%#v\n", uints)
 	// Output:  map[int]int{5:6, 7:8, 9:0}
 }
@@ -61,7 +61,7 @@ func ExampleCustom() {
 			Name: sql.NullString{},
 		},
 	}
-	logics := converter.ConvertSlice(repositories, RepositoryToLogicConverter)
+	logics := omniconv.ConvertSlice(repositories, RepositoryToLogicConverter)
 	fmt.Printf("%#v\n", logics)
 	// Output: []examples.ModelLogic{examples.ModelLogic{ID:123, Name:"smth"}, examples.ModelLogic{ID:456, Name:""}}
 }

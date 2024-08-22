@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/olegdayo/converter"
+	"github.com/olegdayo/omniconv"
 )
 
 type ModelLogic struct {
@@ -39,7 +39,7 @@ func ExampleCustom() {
 			Name: sql.NullString{},
 		},
 	}
-	logics := converter.ConvertSlice(repositories, RepositoryToLogicConverter)
+	logics := omniconv.ConvertSlice(repositories, RepositoryToLogicConverter)
 	fmt.Printf("%#v\n", logics)
 	// Output: []examples.ModelLogic{examples.ModelLogic{ID:123, Name:"smth"}, examples.ModelLogic{ID:456, Name:""}}
 }

@@ -1,4 +1,4 @@
-package converter
+package omniconv
 
 // ConvertSlice converts slice of type F to slice of type T
 func ConvertSlice[F any, T any](from []F, f func(F) T) (to []T) {
