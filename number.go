@@ -20,6 +20,7 @@ type Number interface {
 	Int | Float
 }
 
+// NumberConverter converts number type T1 to number type T2
 func NumberConverter[T1 Number, T2 Number](from T1) (to T2) {
 	return T2(from)
 }
