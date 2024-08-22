@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+
+# IDE
+.fleet/
+.idea/
+.vscode/
+
+# Binaries
+*.o
+bin/
+build/
+target/
