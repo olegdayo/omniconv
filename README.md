@@ -1,5 +1,9 @@
 # Converter
 
+[ci]: https://github.com/olegdayo/converter/actions/workflows/ci.yaml/badge.svg
+
+![CI][ci]
+
 A simple, somewhat declarative type conversion library
 
 # Examples
