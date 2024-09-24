@@ -28,27 +28,27 @@ func TestNumberConverterIntToFloat(t *testing.T) {
 		output outputType
 	}{
 		{
-			name:   "empty",
+			name:   "zero",
 			input:  0,
 			output: 0,
 		},
 		{
-			name:   "non-empty",
+			name:   "one",
 			input:  1,
 			output: 1,
 		},
 		{
-			name:   "non-empty",
+			name:   "minus-one",
 			input:  -1,
 			output: -1,
 		},
 		{
-			name:   "non-empty",
+			name:   "one'n'half",
 			input:  1.5,
 			output: 1,
 		},
 		{
-			name:   "non-empty",
+			name:   "minus-one'n'half",
 			input:  -1.5,
 			output: -1,
 		},
@@ -80,17 +80,17 @@ func TestNumberConverterFloatToInt(t *testing.T) {
 		output outputType
 	}{
 		{
-			name:   "empty",
+			name:   "zero",
 			input:  0,
 			output: 0,
 		},
 		{
-			name:   "non-empty",
+			name:   "one",
 			input:  1,
 			output: 1,
 		},
 		{
-			name:   "non-empty",
+			name:   "minus-one",
 			input:  -1,
 			output: -1,
 		},
@@ -121,17 +121,17 @@ func TestNumberConverterIntToUint(t *testing.T) {
 		output outputType
 	}{
 		{
-			name:   "empty",
+			name:   "zero",
 			input:  0,
 			output: 0,
 		},
 		{
-			name:   "non-empty",
+			name:   "one",
 			input:  1,
 			output: 1,
 		},
 		{
-			name:   "non-empty",
+			name:   "minus-one",
 			input:  -1,
 			output: 0xffffffffffffffff, // ATTENTION!
 		},
