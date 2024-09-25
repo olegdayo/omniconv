@@ -18,12 +18,12 @@ func TestTextConverterStringToBytes(t *testing.T) {
 		{
 			name:   "empty",
 			input:  "",
-			output: []byte{},
+			output: outputType{},
 		},
 		{
 			name:   "non-empty",
 			input:  "hello",
-			output: []byte{'h', 'e', 'l', 'l', 'o'},
+			output: outputType{'h', 'e', 'l', 'l', 'o'},
 		},
 	}
 
