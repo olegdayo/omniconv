@@ -37,7 +37,7 @@ func MustStringToIntConverter[T Int](from string) (to T) {
 	return T(n)
 }
 
-// StringToIntConverter parses float from string
+// StringToFloatConverter parses float from string
 //
 // On error returns default value (0)
 func StringToFloatConverter[T Float](from string) (to T) {
