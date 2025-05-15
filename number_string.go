@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-// IntToStringConverter converts integer into string
+// IntToStringConverter converts int into string
 func IntToStringConverter[T Int](from T) (to string) {
 	return fmt.Sprintf("%d", from)
 }

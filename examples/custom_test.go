@@ -25,7 +25,7 @@ func RepositoryToLogicConverter(from ModelRepository) (to ModelLogic) {
 	return to
 }
 
-func ExampleCustom() {
+func ExampleRepositoryToLogicConverter() {
 	repositories := []ModelRepository{
 		{
 			ID: 123,
