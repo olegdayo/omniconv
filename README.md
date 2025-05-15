@@ -33,6 +33,13 @@ func ExampleStringToIntConverter() {
 	fmt.Printf("%#v\n", uints)
 	// Output:  map[int]int{5:6, 7:8, 9:0}
 }
+
+func ExampleStringToBoolConverter() {
+	strings := map[int]string{5: "false", 7: "true", 9: "dummy"}
+	uints := omniconv.ConvertMap(strings, omniconv.StringToBoolConverter)
+	fmt.Printf("%#v\n", uints)
+	// Output:  map[int]bool{5:false, 7:true, 9:false}
+}
 ```
 
 ## Custom Types
