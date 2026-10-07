@@ -22,14 +22,14 @@ func ExampleIntToBoolConverter() {
 
 func ExampleStringToIntConverter() {
 	strings := map[int]string{5: "6", 7: "8", 9: "silly"}
-	uints := omniconv.ConvertMap(strings, omniconv.StringToIntConverter[int])
+	uints := omniconv.ConvertMapValues(strings, omniconv.StringToIntConverter[int])
 	fmt.Printf("%#v\n", uints)
 	// Output:  map[int]int{5:6, 7:8, 9:0}
 }
 
 func ExampleStringToBoolConverter() {
 	strings := map[int]string{5: "false", 7: "true", 9: "dummy"}
-	uints := omniconv.ConvertMap(strings, omniconv.StringToBoolConverter)
+	uints := omniconv.ConvertMap(strings, omniconv.IntToStringConverter[int], omniconv.StringToBoolConverter)
 	fmt.Printf("%#v\n", uints)
-	// Output:  map[int]bool{5:false, 7:true, 9:false}
+	// Output:  map[string]bool{"5":false, "7":true, "9":false}
 }

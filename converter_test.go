@@ -44,24 +44,25 @@ func TestConvertSlice(t *testing.T) {
 }
 
 func TestConvertMap(t *testing.T) {
-	type key = byte
-	type inputType = int
-	type outputType = string
+	type inputTypeKey = int
+	type outputTypeKey = string
+	type inputTypeValue = bool
+	type outputTypeValue = int
 
 	testCases := []struct {
 		name   string
-		input  map[key]inputType
-		output map[key]outputType
+		input  map[inputTypeKey]inputTypeValue
+		output map[outputTypeKey]outputTypeValue
 	}{
 		{
 			name:   "empty",
-			input:  map[key]inputType{},
-			output: map[key]outputType{},
+			input:  map[inputTypeKey]inputTypeValue{},
+			output: map[outputTypeKey]outputTypeValue{},
 		},
 		{
 			name:   "non-empty",
-			input:  map[key]inputType{16: 1, 32: 2, 64: 3},
-			output: map[key]outputType{16: "1", 32: "2", 64: "3"},
+			input:  map[inputTypeKey]inputTypeValue{16: true, 32: false, 64: true},
+			output: map[outputTypeKey]outputTypeValue{"16": 1, "32": 0, "64": 1},
 		},
 	}
 
@@ -74,7 +75,7 @@ func TestConvertMap(t *testing.T) {
 				assert.Equal(
 					t,
 					testCase.output,
-					ConvertMap(testCase.input, IntToStringConverter[inputType]),
+					ConvertMap(testCase.input, IntToStringConverter[inputTypeKey], BoolToIntConverter[outputTypeValue]),
 				)
 			},
 		)
