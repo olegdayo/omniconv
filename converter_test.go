@@ -80,3 +80,79 @@ func TestConvertMap(t *testing.T) {
 		)
 	}
 }
+
+func TestConvertMapValues(t *testing.T) {
+	type key = byte
+	type inputType = int
+	type outputType = string
+
+	testCases := []struct {
+		name   string
+		input  map[key]inputType
+		output map[key]outputType
+	}{
+		{
+			name:   "empty",
+			input:  map[key]inputType{},
+			output: map[key]outputType{},
+		},
+		{
+			name:   "non-empty",
+			input:  map[key]inputType{16: 1, 32: 2, 64: 3},
+			output: map[key]outputType{16: "1", 32: "2", 64: "3"},
+		},
+	}
+
+	for _, testCase := range testCases {
+		testCase := testCase
+		t.Run(
+			testCase.name,
+			func(t *testing.T) {
+				t.Parallel()
+				assert.Equal(
+					t,
+					testCase.output,
+					ConvertMapValues(testCase.input, IntToStringConverter[inputType]),
+				)
+			},
+		)
+	}
+}
+
+func TestConvertMapKeys(t *testing.T) {
+	type value = byte
+	type inputType = int
+	type outputType = string
+
+	testCases := []struct {
+		name   string
+		input  map[inputType]value
+		output map[outputType]value
+	}{
+		{
+			name:   "empty",
+			input:  map[inputType]value{},
+			output: map[outputType]value{},
+		},
+		{
+			name:   "non-empty",
+			input:  map[inputType]value{16: 1, 32: 2, 64: 3},
+			output: map[outputType]value{"16": 1, "32": 2, "64": 3},
+		},
+	}
+
+	for _, testCase := range testCases {
+		testCase := testCase
+		t.Run(
+			testCase.name,
+			func(t *testing.T) {
+				t.Parallel()
+				assert.Equal(
+					t,
+					testCase.output,
+					ConvertMapKeys(testCase.input, IntToStringConverter[inputType]),
+				)
+			},
+		)
+	}
+}
